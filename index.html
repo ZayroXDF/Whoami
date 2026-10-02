@@ -220,7 +220,50 @@
 
         </div>
 
+        <section class="weer-section">
+            <h2>Actueel weer in Den Haag</h2>
+
+            <div id="weer">
+                <p id="weer-status">Weer laden...</p>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <h2>Contactformulier</h2>
+
+            <form id="contact-form" novalidate>
+
+                <div class="form-group">
+                    <label for="naam">Naam</label>
+                    <input type="text" id="naam" name="naam"
+                    aria-describedby="naam-fout">
+                    <p class="error-message" id="naam-fout"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email"
+                    aria-describedby="email-fout">
+                    <p class="error-message" id="email-fout"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="bericht">Bericht</label>
+                    <textarea id="bericht" name="bericht"
+                        aria-describedby="bericht-fout"></textarea>
+                    <p class="error-message" id="bericht-fout"></p>
+                </div>
+
+                <button type="submit">Versturen</button>
+
+                <p id="form-resultaat" aria-live="polite"></p>
+
+            </form>
+        </section>
+
     </main>
+
+    <script src="js/script.js"></script>
 
 </body>
 
