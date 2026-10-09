@@ -234,4 +234,4 @@ if (weerElement && weerStatus) {
     }
 
     laadWeer();
-}
+}git
