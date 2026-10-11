@@ -12,19 +12,28 @@
 
 <body>
 
+    <!-- SIDEBAR
+         Bevat mijn profiel, persoonlijke informatie en contactlinks.
+         De positie wordt met CSS aangepast aan de schermgrootte. -->
     <header class="sidebar">
 
+        <!-- PROFIEL
+             Toont mijn initialen, naam en opleiding.
+             Geeft bezoekers direct informatie over wie ik ben. -->
         <div class="profile">
 
             <div class="profile-image">
                 <span>ZD</span>
             </div>
 
-            <h2>Zayro</h2>
+            <h3>Zayro Delgado Fortes</h3>
             <p>HBO-ICT Student</p>
 
         </div>
 
+        <!-- PERSOONLIJKE INFORMATIE
+             Toont mijn studie, vaardigheden en andere gegevens.
+             De informatie wordt op mobiele schermen verborgen via CSS. -->
         <div class="sidebar-info">
 
             <div class="info-item">
@@ -59,31 +68,40 @@
 
         </div>
 
+        <!-- CONTACTLINKS
+             Bevat links naar e-mail, GitHub en LinkedIn.
+             De # verwijzingen zijn momenteel placeholders. -->
         <div class="contact-section">
 
-    <h3>Contact</h3>
+            <h3>Contact</h3>
 
-    <a href="#">
-        Email
-    </a>
+            <a href="#">
+                Email
+            </a>
 
-    <a href="#">
-        GitHub
-    </a>
+            <a href="#">
+                GitHub
+            </a>
 
-    <a href="#">
-        LinkedIn
-    </a>
+            <a href="#">
+                LinkedIn
+            </a>
 
-</div>
+        </div>
 
     </header>
 
 
+    <!-- HOOFDINHOUD
+         Bevat de navigatie, introductie en overige paginaonderdelen.
+         Het main-element geeft de belangrijkste inhoud van de pagina aan. -->
     <main>
 
         <div class="content-container">
 
+            <!-- NAVIGATIE
+                 Maakt navigeren tussen de drie portfoliopagina's mogelijk.
+                 De active-class geeft aan welke pagina geopend is. -->
             <nav class="top-nav">
 
                 <a class="active" href="index.html">
@@ -101,6 +119,9 @@
             </nav>
 
 
+            <!-- INTRODUCTIE
+                 Stelt mij voor aan bezoekers van mijn portfolio.
+                 Bevat een korte beschrijving van mijn studie en interesses. -->
             <section class="page-intro">
 
                 <h1>Who am I?</h1>
@@ -114,6 +135,9 @@
             </section>
 
 
+            <!-- OVER MIJ
+                 Beschrijft mijn interesses binnen ICT.
+                 Geeft bezoekers meer informatie over mijn ontwikkeling. -->
             <section>
 
                 <h2>Over mij</h2>
@@ -128,12 +152,18 @@
             </section>
 
 
+            <!-- VAARDIGHEDEN
+                 Toont vier onderwerpen waarin ik kennis ontwikkel.
+                 CSS Grid bepaalt hoe de kaarten worden weergegeven. -->
             <section>
 
                 <h2>Wat ik doe</h2>
 
                 <div class="card-grid">
 
+                    <!-- SOFTWARE DEVELOPMENT
+                         Beschrijft mijn ervaring met Java en MVC.
+                         Het article-element vormt een zelfstandige kaart. -->
                     <article class="skill-card">
 
                         <div class="card-icon">
@@ -152,6 +182,9 @@
                     </article>
 
 
+                    <!-- WEB DEVELOPMENT
+                         Beschrijft mijn kennis van HTML5 en CSS3.
+                         De kaart wordt responsive weergegeven via CSS. -->
                     <article class="skill-card">
 
                         <div class="card-icon">
@@ -170,6 +203,9 @@
                     </article>
 
 
+                    <!-- INTERNET OF THINGS
+                         Beschrijft mijn ervaring met sensoren en Arduino.
+                         Laat zien dat ik ook met hardware en API's werk. -->
                     <article class="skill-card">
 
                         <div class="card-icon">
@@ -188,6 +224,9 @@
                     </article>
 
 
+                    <!-- CYBER SECURITY
+                         Beschrijft mijn basiskennis van informatiebeveiliging.
+                         Laat mijn interesse in privacy en security zien. -->
                     <article class="skill-card">
 
                         <div class="card-icon">
@@ -211,6 +250,10 @@
 
         </div>
 
+
+        <!-- WEERGEGEVENS
+             Toont het actuele weer in Den Haag.
+             JavaScript haalt de gegevens op en vult het weer-element. -->
         <section class="weer-section">
             <h2>Actueel weer in Den Haag</h2>
 
@@ -219,11 +262,22 @@
             </div>
         </section>
 
+
+        <!-- CONTACTFORMULIER
+             Laat bezoekers hun naam, e-mailadres en bericht invullen.
+             JavaScript controleert de invoer en toont eventuele foutmeldingen. -->
         <section class="contact-form-section">
             <h2>Contactformulier</h2>
 
             <form id="contact-form" novalidate>
 
+                <!-- ARIA-DESCRIBEDBY
+                     Koppelt een invoerveld aan de bijbehorende foutmelding.
+                     Hierdoor kan een schermlezer de foutmelding voorlezen. -->
+
+                <!-- NAAMVELD
+                     Laat de gebruiker een naam invoeren.
+                     Het fout-element toont een melding bij ongeldige invoer. -->
                 <div class="form-group">
                     <label for="naam">Naam</label>
                     <input type="text" id="naam" name="naam"
@@ -231,6 +285,9 @@
                     <p class="error-message" id="naam-fout"></p>
                 </div>
 
+                <!-- E-MAILVELD
+                     Gebruikt type email voor invoer van een e-mailadres.
+                     JavaScript controleert of het veld geldig is ingevuld. -->
                 <div class="form-group">
                     <label for="email">E-mailadres</label>
                     <input type="email" id="email" name="email"
@@ -238,6 +295,9 @@
                     <p class="error-message" id="email-fout"></p>
                 </div>
 
+                <!-- BERICHTVELD
+                     Laat bezoekers een bericht typen in een textarea.
+                     Een foutmelding verschijnt bij ongeldige invoer. -->
                 <div class="form-group">
                     <label for="bericht">Bericht</label>
                     <textarea id="bericht" name="bericht"
@@ -245,13 +305,23 @@
                     <p class="error-message" id="bericht-fout"></p>
                 </div>
 
+                <!-- VERSTUURKNOP EN RESULTAAT
+                     De submit-knop start de formulierverwerking.
+                     Het resultaat-element toont feedback aan de gebruiker. -->
                 <button type="submit">Versturen</button>
 
+                <!-- ARIA-LIVE
+                     Laat een schermlezer nieuwe resultaatmeldingen aankondigen.
+                     Polite zorgt ervoor dat dit gebeurt zonder direct te onderbreken. -->
                 <p id="form-resultaat" aria-live="polite"></p>
 
             </form>
         </section>
 
+
+        <!-- FOOTER
+             Toont de copyrightinformatie onderaan de pagina.
+             CSS bepaalt de opmaak en uitlijning. -->
         <footer>
 
                 <p>
@@ -262,6 +332,9 @@
 
     </main>
 
+    <!-- JAVASCRIPT
+         Laadt het script voor interactieve onderdelen van de website.
+         Wordt onderaan geplaatst zodat de HTML eerst geladen wordt. -->
     <script src="js/script.js"></script>
 
 </body>

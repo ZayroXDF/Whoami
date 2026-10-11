@@ -12,8 +12,14 @@
 
 <body>
 
+    <!-- SIDEBAR
+         Bevat mijn profiel, persoonlijke informatie en contactlinks.
+         CSS past de positie aan op verschillende schermgroottes. -->
     <header class="sidebar">
 
+        <!-- PROFIEL
+             Toont mijn initialen, naam en opleiding.
+             Geeft bezoekers informatie over wie ik ben. -->
         <div class="profile">
 
             <div class="profile-image">
@@ -25,6 +31,9 @@
 
         </div>
 
+        <!-- PERSOONLIJKE INFORMATIE
+             Toont gegevens over mijn studie, vaardigheden en talen.
+             Deze informatie wordt op mobiele schermen verborgen via CSS. -->
         <div class="sidebar-info">
 
             <div class="info-item">
@@ -59,31 +68,40 @@
 
         </div>
 
+        <!-- CONTACTLINKS
+             Bevat links naar e-mail, GitHub en LinkedIn.
+             De externe links openen via target="_blank" in een nieuw tabblad. -->
         <div class="contact-section">
 
-    <h3>Contact</h3>
+            <h3>Contact</h3>
 
-    <a href="mailto:jouwmail@example.com">
-        Email
-    </a>
+            <a href="mailto:jouwmail@example.com">
+                Email
+            </a>
 
-    <a href="https://github.com/jouwgebruikersnaam" target="_blank">
-        GitHub
-    </a>
+            <a href="https://github.com/jouwgebruikersnaam" target="_blank">
+                GitHub
+            </a>
 
-    <a href="https://www.linkedin.com/in/jouwprofiel" target="_blank">
-        LinkedIn
-    </a>
+            <a href="https://www.linkedin.com/in/jouwprofiel" target="_blank">
+                LinkedIn
+            </a>
 
-</div>
+        </div>
 
     </header>
 
 
+    <!-- HOOFDINHOUD
+         Bevat de navigatie, blogintroductie en blogberichten.
+         Het main-element geeft de belangrijkste pagina-inhoud aan. -->
     <main>
 
         <div class="content-container">
 
+            <!-- NAVIGATIE
+                 Laat bezoekers wisselen tussen de drie portfoliopagina's.
+                 De active-class markeert de huidige Blog-pagina. -->
             <nav class="top-nav">
 
                 <a href="index.html">
@@ -101,6 +119,9 @@
             </nav>
 
 
+            <!-- BLOGINTRODUCTIE
+                 Toont de paginatitel en een korte beschrijving.
+                 Vertelt bezoekers waar mijn blogberichten over gaan. -->
             <section class="page-intro">
 
                 <h1>Blog</h1>
@@ -113,95 +134,126 @@
             </section>
 
 
+            <!-- BLOGLIJST
+                 Bevat alle blogberichten in afzonderlijke kaarten.
+                 CSS Grid bepaalt hoe de kaarten worden weergegeven. -->
+            <div class="blog-grid">
 
-                <div class="blog-grid">
+                <!-- BLOG 1: SEMANTISCHE HTML
+                     Beschrijft wat ik heb geleerd over semantische HTML.
+                     Het article-element geeft het bericht een eigen structuur. -->
+                <article class="blog-card">
 
-                    <article class="blog-card">
+                    <p class="blog-date">
+                        11 september 2026
+                    </p>
 
-                        <p class="blog-date">
-                            11 september 2026
-                        </p>
+                    <h2>
+                        Wat ik heb geleerd over semantische HTML
+                    </h2>
 
-                        <h2>
-                            Wat ik heb geleerd over semantische HTML
-                        </h2>
+                    <p>
+                        Tijdens het bouwen van mijn portfolio heb ik geleerd
+                        waarom semantische HTML belangrijk is. Elementen zoals
+                        header, nav, main, section, article en footer geven
+                        duidelijke betekenis aan de structuur van een pagina.
+                    </p>
 
+                    <!-- LEES MEER-KNOP
+                         JavaScript luistert naar een klik op deze knop.
+                         Hiermee kan de bezoeker extra tekst openen of sluiten. -->
+                    <button class="lees-meer">Lees meer</button>
+
+                    <!-- EXTRA BLOGTEKST
+                         Is standaard verborgen met display: none in CSS.
+                         JavaScript toont de tekst door de class open toe te voegen. -->
+                    <div class="blog-extra">
                         <p>
-                            Tijdens het bouwen van mijn portfolio heb ik geleerd
-                            waarom semantische HTML belangrijk is. Elementen zoals
-                            header, nav, main, section, article en footer geven
-                            duidelijke betekenis aan de structuur van een pagina.
+                            Hier staat aanvullende informatie over dit blogbericht.
                         </p>
+                    </div>
 
-                        <button class="lees-meer">Lees meer</button>
-
-                        <div class="blog-extra">
-                            <p>
-                                Hier staat aanvullende informatie over dit blogbericht.
-                            </p>
-                        </div>
-
-                    </article>
+                </article>
 
 
-                    <article class="blog-card">
+                <!-- BLOG 2: RESPONSIVE DESIGN
+                     Beschrijft hoe ik mijn website responsive heb gemaakt.
+                     Legt uit waarom media queries belangrijk zijn. -->
+                <article class="blog-card">
 
-                        <p class="blog-date">
-                            11 september 2026
-                        </p>
+                    <p class="blog-date">
+                        11 september 2026
+                    </p>
 
-                        <h2>
-                            Mijn eerste stappen met responsive design
-                        </h2>
+                    <h2>
+                        Mijn eerste stappen met responsive design
+                    </h2>
 
+                    <p>
+                        Een website moet bruikbaar blijven op verschillende
+                        schermformaten. Daarom gebruik ik media queries om
+                        mijn portfolio aan te passen voor desktop, tablet
+                        en mobiel.
+                    </p>
+
+                    <!-- LEES MEER-KNOP
+                         Reageert op klikken via een JavaScript-eventlistener.
+                         De knop wisselt tussen Lees meer en Lees minder. -->
+                    <button class="lees-meer">Lees meer</button>
+
+                    <!-- EXTRA BLOGTEKST
+                         Bevat aanvullende informatie over responsive design.
+                         JavaScript maakt deze tekst zichtbaar of verborgen. -->
+                    <div class="blog-extra">
                         <p>
-                            Een website moet bruikbaar blijven op verschillende
-                            schermformaten. Daarom gebruik ik media queries om
-                            mijn portfolio aan te passen voor desktop, tablet
-                            en mobiel.
-                        </p>
-                        
-                        <button class="lees-meer">Lees meer</button>
-
-                        <div class="blog-extra">
-                            <p>
-                                Hier staat aanvullende informatie over dit blogbericht.
-                            </p>
-
-                        </div>
-                    </article>
-
-
-                    <article class="blog-card">
-
-                        <p class="blog-date">
-                            11 september 2026
+                            Hier staat aanvullende informatie over dit blogbericht.
                         </p>
 
-                        <h2>
-                            Waarom ik Git gebruik
-                        </h2>
+                    </div>
+                </article>
 
+
+                <!-- BLOG 3: GIT
+                     Beschrijft waarom ik Git gebruik voor versiebeheer.
+                     Laat zien hoe ik wijzigingen in mijn projecten bijhoud. -->
+                <article class="blog-card">
+
+                    <p class="blog-date">
+                        11 september 2026
+                    </p>
+
+                    <h2>
+                        Waarom ik Git gebruik
+                    </h2>
+
+                    <p>
+                        Met Git kan ik wijzigingen in mijn project bijhouden.
+                        Hierdoor kan ik mijn ontwikkelproces stap voor stap
+                        vastleggen en eerdere versies terugvinden.
+                    </p>
+
+                    <!-- LEES MEER-KNOP
+                         JavaScript gebruikt de class lees-meer om de knop te vinden.
+                         Een klik toont of verbergt de extra blogtekst. -->
+                    <button class="lees-meer">Lees meer</button>
+
+                    <!-- EXTRA BLOGTEKST
+                         Wordt standaard verborgen door de class blog-extra.
+                         De class open maakt de inhoud zichtbaar via CSS. -->
+                    <div class="blog-extra">
                         <p>
-                            Met Git kan ik wijzigingen in mijn project bijhouden.
-                            Hierdoor kan ik mijn ontwikkelproces stap voor stap
-                            vastleggen en eerdere versies terugvinden.
+                            Hier staat aanvullende informatie over dit blogbericht.
                         </p>
+                    </div>
 
-                        <button class="lees-meer">Lees meer</button>
+                </article>
 
-                        <div class="blog-extra">
-                            <p>
-                                Hier staat aanvullende informatie over dit blogbericht.
-                            </p>
-                        </div>
-                
-                    </article>
-
-                </div>
+            </div>
 
 
-
+            <!-- FOOTER
+                 Toont de copyrightinformatie onderaan de pagina.
+                 CSS bepaalt de opmaak en uitlijning. -->
             <footer>
 
                 <p>
@@ -214,6 +266,9 @@
 
     </main>
 
+    <!-- JAVASCRIPT
+         Laadt script.js voor de interactieve onderdelen van de website.
+         Regelt op deze pagina de Lees meer- en Lees minder-knoppen. -->
     <script src="js/script.js"></script>
 
 </body>

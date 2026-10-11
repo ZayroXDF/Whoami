@@ -1,7 +1,7 @@
-/* =========================================
-   KLEUREN
-   ========================================= */
 
+/* KLEUREN
+   :root bevat CSS-variabelen voor de kleuren van de website.
+   Met var() kunnen dezelfde kleuren op meerdere plekken worden gebruikt. */
 :root {
     --background: #0d0d0d;
     --surface: #181818;
@@ -12,7 +12,10 @@
 
     --text: #f5f5f5;
     --text-muted: #b3b3b3;
-    /* Aangepast voor beter tekstcontrast */
+
+    /* TEKSTCONTRAST
+       Deze kleur is aangepast voor beter tekstcontrast.
+       Dit helpt om kleinere teksten beter leesbaar te maken. */
     --text-dark: #999999;
 
     --accent: #1ed760;
@@ -20,10 +23,9 @@
 }
 
 
-/* =========================================
-   RESET
-   ========================================= */
-
+/* CSS RESET
+   Verwijdert standaard marges en padding van HTML-elementen.
+   border-box zorgt dat padding en borders meetellen in de breedte. */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -31,14 +33,17 @@
 }
 
 
-/* =========================================
-   BASIS
-   ========================================= */
-
+/* SOEPEL SCROLLEN
+   Zorgt voor een vloeiende scrollbeweging bij interne links.
+   De browser scrolt hierdoor niet direct naar de bestemming. */
 html {
     scroll-behavior: smooth;
 }
 
+
+/* BASISOPMAAK
+   Stelt het lettertype en de standaardkleuren van de website in.
+   min-height zorgt dat de pagina minimaal de schermhoogte heeft. */
 body {
     min-height: 100vh;
 
@@ -53,10 +58,9 @@ body {
 }
 
 
-/* =========================================
-   SIDEBAR
-   ========================================= */
-
+/* SIDEBAR
+   Plaatst de sidebar vast aan de linkerkant van het scherm.
+   De breedte, hoogte, achtergrond en afgeronde hoeken worden ingesteld. */
 .sidebar {
     position: fixed;
 
@@ -75,10 +79,9 @@ body {
 }
 
 
-/* =========================================
-   PROFIEL
-   ========================================= */
-
+/* PROFIEL
+   Centreert de profielinformatie in de sidebar.
+   De onderrand scheidt het profiel van de overige informatie. */
 .profile {
     text-align: center;
 
@@ -88,6 +91,9 @@ body {
 }
 
 
+/* PROFIELAFBEELDING
+   Maakt een vierkant blok waarin mijn initialen staan.
+   Flexbox centreert de initialen horizontaal en verticaal. */
 .profile-image {
     width: 90px;
     height: 90px;
@@ -111,6 +117,9 @@ body {
 }
 
 
+/* PROFIELNAAM
+   Geeft de naam een kleine ondermarge.
+   De tekst krijgt de standaard lichte tekstkleur. */
 .profile h2 {
     margin-bottom: 5px;
 
@@ -118,6 +127,9 @@ body {
 }
 
 
+/* PROFIELBESCHRIJVING
+   Maakt de tekst onder de naam iets kleiner.
+   De gedempte kleur zorgt voor een visueel onderscheid. */
 .profile p {
     font-size: 0.85rem;
 
@@ -125,15 +137,17 @@ body {
 }
 
 
-/* =========================================
-   SIDEBAR INFORMATIE
-   ========================================= */
-
+/* SIDEBAR-INFORMATIE
+   Geeft de persoonlijke informatie ruimte bovenaan.
+   Hierdoor staat deze niet direct tegen het profiel. */
 .sidebar-info {
     margin-top: 25px;
 }
 
 
+/* INFORMATIE-ITEM
+   Flexbox plaatst het label en de waarde onder elkaar.
+   gap bepaalt de ruimte tussen deze twee onderdelen. */
 .info-item {
     display: flex;
     flex-direction: column;
@@ -148,6 +162,9 @@ body {
 }
 
 
+/* INFORMATIELABEL
+   Maakt labels klein en zet de tekst in hoofdletters.
+   letter-spacing zorgt voor extra ruimte tussen de letters. */
 .info-label {
     font-size: 0.65rem;
 
@@ -158,10 +175,10 @@ body {
     color: var(--text-dark);
 }
 
-/* =========================================
-   CONTACT SIDEBAR
-   ========================================= */
 
+/* CONTACTGEDEELTE
+   Plaatst de contactlinks onder elkaar met Flexbox.
+   De bovenrand scheidt de links van de persoonlijke informatie. */
 .contact-section {
     margin-top: 25px;
     padding-top: 20px;
@@ -174,6 +191,10 @@ body {
     gap: 10px;
 }
 
+
+/* CONTACTTITEL
+   Maakt de titel kleiner en toont deze in hoofdletters.
+   Dit zorgt voor dezelfde stijl als de informatielabels. */
 .contact-section h3 {
     margin-bottom: 5px;
 
@@ -185,6 +206,10 @@ body {
     letter-spacing: 1px;
 }
 
+
+/* CONTACTLINKS
+   Verwijdert de standaard onderstreping van links.
+   transition maakt kleur- en positieveranderingen vloeiend. */
 .contact-section a {
     color: var(--text-muted);
 
@@ -197,6 +222,10 @@ body {
         transform 0.25s ease;
 }
 
+
+/* HOVER-EFFECT CONTACTLINKS
+   :hover wordt actief wanneer de muis op een link staat.
+   De link wordt groen en verschuift 3 pixels naar rechts. */
 .contact-section a:hover {
     color: var(--accent);
 
@@ -204,10 +233,9 @@ body {
 }
 
 
-/* =========================================
-   MAIN
-   ========================================= */
-
+/* HOOFDINHOUD
+   margin-left houdt ruimte vrij voor de vaste sidebar.
+   padding zorgt voor ruimte rondom de hoofdinhoud. */
 main {
     margin-left: 280px;
 
@@ -215,10 +243,9 @@ main {
 }
 
 
-/* =========================================
-   CENTRAAL BLOK
-   ========================================= */
-
+/* CONTENT-CONTAINER
+   Vormt het grote afgeronde blok waarin de pagina-inhoud staat.
+   overflow hidden voorkomt dat inhoud buiten de afgeronde randen komt. */
 .content-container {
     min-height: calc(100vh - 40px);
 
@@ -231,10 +258,9 @@ main {
 }
 
 
-/* =========================================
-   TOP NAVIGATIE
-   ========================================= */
-
+/* BOVENSTE NAVIGATIE
+   Flexbox plaatst de navigatielinks naast elkaar.
+   justify-content flex-end zet de links aan de rechterkant. */
 .top-nav {
     display: flex;
 
@@ -253,6 +279,9 @@ main {
 }
 
 
+/* NAVIGATIELINKS
+   Geeft de links ruimte en verwijdert de onderstreping.
+   position relative maakt een onderlijn met ::after mogelijk. */
 .top-nav a {
     position: relative;
 
@@ -269,16 +298,25 @@ main {
 }
 
 
+/* HOVER NAVIGATIE
+   Verandert de tekstkleur wanneer de muis op een link staat.
+   De groene kleur laat zien dat de link interactief is. */
 .top-nav a:hover {
     color: var(--accent);
 }
 
 
+/* ACTIEVE PAGINA
+   De class active wordt in HTML op de huidige pagina gezet.
+   Hierdoor krijgt de geselecteerde navigatielink een groene kleur. */
 .top-nav a.active {
     color: var(--accent);
 }
 
 
+/* ONDERLIJN ACTIEVE PAGINA
+   ::after maakt een extra visueel element zonder extra HTML.
+   Dit wordt als groene lijn onder de actieve link geplaatst. */
 .top-nav a.active::after {
     content: "";
 
@@ -296,24 +334,25 @@ main {
 }
 
 
-/* =========================================
-   SECTIONS
-   ========================================= */
-
+/* SECTIES
+   Geeft alle section-elementen binnenruimte.
+   Hierdoor staat de inhoud niet tegen de randen. */
 section {
     padding: 35px 40px;
 }
 
 
+/* OPEENVOLGENDE SECTIES
+   Selecteert een section die direct na een andere section komt.
+   Verkleint de bovenruimte tussen deze secties. */
 section + section {
     padding-top: 10px;
 }
 
 
-/* =========================================
-   HEADINGS
-   ========================================= */
-
+/* H1 PAGINATITEL
+   Stelt de grootte en kleur van de belangrijkste titel in.
+   margin-bottom zorgt voor ruimte onder de titel. */
 h1 {
     margin-bottom: 25px;
 
@@ -323,6 +362,9 @@ h1 {
 }
 
 
+/* DECORATIEVE LIJN ONDER H1
+   ::after maakt een groene lijn onder de paginatitel.
+   Hiervoor hoeft geen extra HTML-element te worden toegevoegd. */
 h1::after {
     content: "";
 
@@ -339,6 +381,9 @@ h1::after {
 }
 
 
+/* H2 TITELS
+   Stelt de opmaak van titels binnen secties en kaarten in.
+   De grootte is kleiner dan h1 voor een duidelijke hiërarchie. */
 h2 {
     margin-bottom: 15px;
 
@@ -348,6 +393,9 @@ h2 {
 }
 
 
+/* H3 TITELS
+   Geeft kleinere tussenkoppen hun eigen opmaak.
+   Dit zorgt voor onderscheid tussen de verschillende kopniveaus. */
 h3 {
     margin-bottom: 8px;
 
@@ -357,10 +405,9 @@ h3 {
 }
 
 
-/* =========================================
-   TEKST
-   ========================================= */
-
+/* ALINEATEKST
+   Gebruikt een gedempte tekstkleur voor gewone tekst.
+   line-height vergroot de regelafstand voor betere leesbaarheid. */
 p {
     color: var(--text-muted);
 
@@ -368,10 +415,9 @@ p {
 }
 
 
-/* =========================================
-   WHOAMI CARD GRID
-   ========================================= */
-
+/* SKILL CARD GRID
+   CSS Grid verdeelt de vaardigheidskaarten in twee gelijke kolommen.
+   repeat(2, 1fr) betekent twee kolommen met dezelfde breedte. */
 .card-grid {
     display: grid;
 
@@ -384,6 +430,9 @@ p {
 }
 
 
+/* VAARDIGHEIDSKAART
+   Flexbox plaatst het icoon en de tekst naast elkaar.
+   De achtergrond, border en padding geven de kaart zijn uiterlijk. */
 .skill-card {
     display: flex;
 
@@ -403,6 +452,9 @@ p {
 }
 
 
+/* HOVER VAARDIGHEIDSKAART
+   translateY verplaatst de kaart 3 pixels omhoog.
+   De achtergrond en rand veranderen om interactie te tonen. */
 .skill-card:hover {
     transform: translateY(-3px);
 
@@ -412,6 +464,9 @@ p {
 }
 
 
+/* VAARDIGHEIDSICOON
+   Maakt een blok voor bijvoorbeeld WEB, IoT of SEC.
+   Flexbox centreert de tekst binnen dit blok. */
 .card-icon {
     min-width: 55px;
     height: 55px;
@@ -433,10 +488,9 @@ p {
 }
 
 
-/* =========================================
-   PROJECT GRID
-   ========================================= */
-
+/* PROJECT GRID
+   CSS Grid plaatst de projectkaarten in twee gelijke kolommen.
+   Bij kleinere schermen wordt dit aangepast met een media query. */
 .project-grid {
     display: grid;
 
@@ -447,6 +501,9 @@ p {
 }
 
 
+/* PROJECTKAART
+   Bepaalt de afmetingen en vormgeving van iedere projectkaart.
+   JavaScript maakt de kaarten aan en geeft ze deze CSS-class. */
 .project-card {
     position: relative;
 
@@ -466,6 +523,9 @@ p {
 }
 
 
+/* HOVER PROJECTKAART
+   Verplaatst de kaart iets omhoog wanneer de muis erop staat.
+   De groene rand maakt de hover-interactie zichtbaar. */
 .project-card:hover {
     transform: translateY(-4px);
 
@@ -475,6 +535,9 @@ p {
 }
 
 
+/* PROJECTNUMMER
+   Geeft de projectnummers 01, 02, 03 en 04 hun opmaak.
+   De groene kleur en extra letterafstand maken ze herkenbaar. */
 .project-number {
     margin-bottom: 25px;
 
@@ -487,15 +550,17 @@ p {
 }
 
 
+/* PROJECTBESCHRIJVING
+   Geeft de tekst in projectkaarten extra ruimte eronder.
+   Hierdoor staan de tags niet direct tegen de beschrijving. */
 .project-card p {
     margin-bottom: 20px;
 }
 
 
-/* =========================================
-   TAGS
-   ========================================= */
-
+/* PROJECTTAGS
+   Flexbox plaatst de tags naast elkaar.
+   flex-wrap zorgt dat tags naar een nieuwe regel kunnen gaan. */
 .tags {
     display: flex;
 
@@ -507,6 +572,9 @@ p {
 }
 
 
+/* INDIVIDUELE TAGS
+   Geeft iedere tag een afgeronde achtergrond en groene tekst.
+   Hiermee worden gebruikte technieken duidelijk weergegeven. */
 .tags span {
     padding: 6px 10px;
 
@@ -521,10 +589,9 @@ p {
 }
 
 
-/* =========================================
-   BLOG
-   ========================================= */
-
+/* BLOG GRID
+   Gebruikt CSS Grid om de blogkaarten onder elkaar te plaatsen.
+   gap bepaalt de afstand tussen de berichten. */
 .blog-grid {
     display: grid;
 
@@ -532,6 +599,9 @@ p {
 }
 
 
+/* BLOGKAART
+   Geeft elk blogbericht een achtergrond, rand en binnenruimte.
+   transition zorgt voor vloeiende veranderingen bij hover. */
 .blog-card {
     padding: 25px;
 
@@ -547,6 +617,9 @@ p {
 }
 
 
+/* HOVER BLOGKAART
+   Laat de kaart iets omhoog bewegen wanneer de muis erop staat.
+   De achtergrond en rand krijgen een andere kleur. */
 .blog-card:hover {
     transform: translateY(-3px);
 
@@ -556,6 +629,9 @@ p {
 }
 
 
+/* BLOGDATUM
+   Maakt de datum kleiner en geeft deze de groene accentkleur.
+   Zo is de datum te onderscheiden van de titel en tekst. */
 .blog-date {
     margin-bottom: 10px;
 
@@ -565,10 +641,9 @@ p {
 }
 
 
-/* =========================================
-   FOOTER
-   ========================================= */
-
+/* FOOTER
+   Plaatst de copyrightinformatie onderaan de inhoud.
+   De bovenrand scheidt de footer van de rest van de pagina. */
 footer {
     margin-top: 20px;
 
@@ -578,6 +653,9 @@ footer {
 }
 
 
+/* FOOTERTEKST
+   Maakt de copyrighttekst kleiner en minder opvallend.
+   Hierdoor krijgt deze minder nadruk dan de hoofdinhoud. */
 footer p {
     color: var(--text-dark);
 
@@ -585,12 +663,14 @@ footer p {
 }
 
 
-/* =========================================
-   TABLET
-   ========================================= */
-
+/* RESPONSIVE TABLET
+   Deze media query wordt actief bij schermen van maximaal 900px.
+   De indeling wordt aangepast voor tablets en kleinere schermen. */
 @media (max-width: 900px) {
 
+    /* SIDEBAR TABLET
+       position relative haalt de sidebar uit zijn vaste positie.
+       Hierdoor komt de sidebar boven de hoofdinhoud te staan. */
     .sidebar {
         position: relative;
 
@@ -604,6 +684,9 @@ footer p {
     }
 
 
+    /* SIDEBAR-INFORMATIE TABLET
+       Flexbox plaatst informatie-items naast elkaar.
+       flex-wrap laat items naar een volgende regel gaan. */
     .sidebar-info {
         display: flex;
 
@@ -613,11 +696,17 @@ footer p {
     }
 
 
+    /* INFORMATIE-ITEMS TABLET
+       Verwijdert de standaard ondermarge van ieder item.
+       De afstand wordt nu bepaald door gap van de container. */
     .info-item {
         margin-bottom: 0;
     }
 
 
+    /* HOOFDINHOUD TABLET
+       Verwijdert de linkermarge die ruimte maakte voor de sidebar.
+       De inhoud kan nu de volledige schermbreedte gebruiken. */
     main {
         margin-left: 0;
 
@@ -626,28 +715,39 @@ footer p {
     }
 
 
+    /* CONTENT-CONTAINER TABLET
+       Verwijdert de minimale schermhoogte van de container.
+       De hoogte wordt nu bepaald door de aanwezige inhoud. */
     .content-container {
         min-height: auto;
     }
 
 
+    /* SKILL GRID TABLET
+       Verandert twee kolommen naar één kolom.
+       Hierdoor komen vaardigheidskaarten onder elkaar te staan. */
     .card-grid {
         grid-template-columns: 1fr;
     }
 
 
+    /* PROJECT GRID TABLET
+       Verandert twee projectkolommen naar één kolom.
+       Zo krijgen projectkaarten meer ruimte op kleinere schermen. */
     .project-grid {
         grid-template-columns: 1fr;
     }
 }
 
 
-/* =========================================
-   MOBIEL
-   ========================================= */
-
+/* RESPONSIVE MOBIEL
+   Deze media query wordt actief bij schermen van maximaal 480px.
+   Past afstanden, tekstgroottes en de indeling verder aan. */
 @media (max-width: 480px) {
 
+    /* SIDEBAR MOBIEL
+       Maakt de sidebar bijna even breed als het scherm.
+       Kleinere marges en padding besparen ruimte. */
     .sidebar {
         width: calc(100% - 20px);
 
@@ -657,6 +757,9 @@ footer p {
     }
 
 
+    /* PROFIELAFBEELDING MOBIEL
+       Verkleint de afbeelding van 90px naar 70px.
+       Hierdoor neemt het profiel minder ruimte in beslag. */
     .profile-image {
         width: 70px;
         height: 70px;
@@ -665,22 +768,34 @@ footer p {
     }
 
 
+    /* SIDEBAR-INFORMATIE VERBERGEN
+       display none verbergt de extra persoonlijke informatie.
+       Hierdoor blijft de mobiele weergave overzichtelijker. */
     .sidebar-info {
         display: none;
     }
 
 
+    /* HOOFDINHOUD MOBIEL
+       Verkleint de ruimte rondom de hoofdinhoud.
+       Zo blijft er meer ruimte over voor de inhoud zelf. */
     main {
         padding:
             0 10px 10px 10px;
     }
 
 
+    /* CONTENT-CONTAINER MOBIEL
+       Verkleint de afgeronde hoeken van de container.
+       Dit past beter bij de compactere mobiele indeling. */
     .content-container {
         border-radius: 15px;
     }
 
 
+    /* NAVIGATIE MOBIEL
+       Centreert de navigatielinks met Flexbox.
+       Verkleint de afstand en padding zodat de links beter passen. */
     .top-nav {
         justify-content: center;
 
@@ -691,37 +806,58 @@ footer p {
     }
 
 
+    /* NAVIGATIELINKS MOBIEL
+       Verkleint de tekstgrootte van de navigatielinks.
+       Hierdoor nemen de links minder horizontale ruimte in. */
     .top-nav a {
         font-size: 0.85rem;
     }
 
 
+    /* SECTIES MOBIEL
+       Verkleint de binnenruimte van alle secties.
+       Hierdoor blijft meer ruimte beschikbaar voor de tekst. */
     section {
         padding:
             25px 20px;
     }
 
 
+    /* H1 MOBIEL
+       Verkleint de belangrijkste paginatitel.
+       Zo past de titel beter op kleinere schermen. */
     h1 {
         font-size: 1.6rem;
     }
 
 
+    /* H2 MOBIEL
+       Verkleint de titels binnen de verschillende onderdelen.
+       Hierdoor blijft de verhouding tussen de koppen behouden. */
     h2 {
         font-size: 1.2rem;
     }
 
 
+    /* VAARDIGHEIDSKAART MOBIEL
+       flex-direction column zet het icoon en de tekst onder elkaar.
+       Dit voorkomt dat ze te veel horizontale ruimte innemen. */
     .skill-card {
         flex-direction: column;
     }
 
 
+    /* PROJECTKAART MOBIEL
+       Verwijdert de minimale hoogte van projectkaarten.
+       De hoogte past zich aan de hoeveelheid inhoud aan. */
     .project-card {
         min-height: auto;
     }
 
 
+    /* FOOTER MOBIEL
+       Verkleint de binnenruimte van de footer.
+       text-align center centreert de copyrighttekst. */
     footer {
         padding:
             20px;
@@ -730,7 +866,10 @@ footer p {
     }
 }
 
-/* Project filters */
+
+/* PROJECTFILTERS
+   Flexbox plaatst de filterknoppen naast elkaar.
+   flex-wrap zorgt dat ze op kleinere schermen kunnen doorlopen. */
 .project-filter {
     display: flex;
     gap: 10px;
@@ -738,6 +877,10 @@ footer p {
     flex-wrap: wrap;
 }
 
+
+/* PROJECTFILTERKNOPPEN
+   Geeft de knoppen een donkere achtergrond en afgeronde hoeken.
+   cursor pointer laat zien dat erop geklikt kan worden. */
 .project-filter button {
     background-color: #222;
     color: #ffffff;
@@ -749,24 +892,44 @@ footer p {
     transition: 0.2s;
 }
 
+
+/* HOVER PROJECTFILTERS
+   Verandert de rand en tekstkleur wanneer de muis erop staat.
+   Hiermee krijgt de gebruiker visuele feedback. */
 .project-filter button:hover {
     border-color: #00e676;
     color: #00e676;
 }
 
+
+/* FOCUS PROJECTFILTERS
+   :focus toont een groene rand wanneer de knop focus heeft.
+   Dit helpt bij het bedienen van de website met een toetsenbord. */
 .project-filter button:focus {
     outline: 2px solid #00e676;
     outline-offset: 2px;
 }
 
+
+/* EXTRA BLOGTEKST
+   display none verbergt de aanvullende blogtekst standaard.
+   JavaScript kan deze tekst later zichtbaar maken. */
 .blog-extra {
     display: none;
 }
 
+
+/* EXTRA BLOGTEKST OPENEN
+   Wanneer JavaScript de class open toevoegt, verschijnt de tekst.
+   display block maakt de eerder verborgen inhoud zichtbaar. */
 .blog-extra.open {
     display: block;
 }
 
+
+/* LEES MEER-KNOP
+   Geeft de blogknop een donkere achtergrond en afgeronde hoeken.
+   JavaScript gebruikt deze knop om extra tekst te tonen. */
 .lees-meer {
     margin-top: 15px;
     background-color: #222;
@@ -777,29 +940,52 @@ footer p {
     cursor: pointer;
 }
 
+
+/* HOVER LEES MEER-KNOP
+   Verandert de tekst en rand naar groen bij hover.
+   Zo ziet de gebruiker dat de knop interactief is. */
 .lees-meer:hover {
     color: #00e676;
     border-color: #00e676;
 }
 
-/* Contactformulier */
+
+/* CONTACTFORMULIER-SECTIE
+   Geeft het contactformulier extra ruimte aan de bovenkant.
+   Hierdoor staat het formulier losser van de vorige inhoud. */
 .contact-form-section {
     margin-top: 40px;
 }
 
+
+/* CONTACTFORMULIER
+   Geeft het formulier ruimte bovenaan.
+   Hierdoor staat het niet direct tegen de sectietitel. */
 #contact-form {
     margin-top: 20px;
 }
 
+
+/* FORMULIERGROEPEN
+   Geeft iedere groep met label en invoerveld onderruimte.
+   Hierdoor blijven de velden overzichtelijk gescheiden. */
 .form-group {
     margin-bottom: 20px;
 }
 
+
+/* FORMULIERLABELS
+   display block plaatst het label op een eigen regel.
+   De ondermarge zorgt voor ruimte tussen label en invoerveld. */
 .form-group label {
     display: block;
     margin-bottom: 8px;
 }
 
+
+/* INVOERVELDEN
+   Geeft tekstvelden en het berichtveld dezelfde vormgeving.
+   width 100% zorgt dat ze de beschikbare breedte gebruiken. */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -811,11 +997,19 @@ footer p {
     border-radius: 8px;
 }
 
+
+/* BERICHTVELD
+   Geeft het tekstvak een minimale hoogte van 120px.
+   resize vertical laat gebruikers de hoogte zelf aanpassen. */
 .form-group textarea {
     min-height: 120px;
     resize: vertical;
 }
 
+
+/* VERSTUURKNOP
+   Geeft de formulierknop dezelfde donkere stijl als andere knoppen.
+   cursor pointer laat zien dat de knop aanklikbaar is. */
 #contact-form button {
     background-color: #222;
     color: #fff;
@@ -825,16 +1019,28 @@ footer p {
     cursor: pointer;
 }
 
+
+/* HOVER VERSTUURKNOP
+   Verandert de rand en tekstkleur naar groen bij hover.
+   Hiermee krijgt de gebruiker feedback bij het aanwijzen. */
 #contact-form button:hover {
     color: #00e676;
     border-color: #00e676;
 }
 
+
+/* FOUTMELDINGEN
+   Bepaalt de tekstgrootte en ruimte boven foutmeldingen.
+   JavaScript vult deze elementen wanneer invoer ongeldig is. */
 .error-message {
     margin-top: 5px;
     font-size: 14px;
 }
 
+
+/* FORMULIERRESULTAAT
+   Geeft de bevestigingsmelding ruimte bovenaan.
+   JavaScript toont hier feedback na het controleren van de invoer. */
 #form-resultaat {
     margin-top: 15px;
 }

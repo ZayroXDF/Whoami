@@ -12,8 +12,14 @@
 
 <body>
 
+    <!-- SIDEBAR
+         Bevat mijn profiel, persoonlijke informatie en contactlinks.
+         CSS past de positie aan op verschillende schermgroottes. -->
     <header class="sidebar">
 
+        <!-- PROFIEL
+             Toont mijn initialen, naam en opleiding.
+             Geeft bezoekers informatie over wie ik ben. -->
         <div class="profile">
 
             <div class="profile-image">
@@ -25,6 +31,9 @@
 
         </div>
 
+        <!-- PERSOONLIJKE INFORMATIE
+             Toont gegevens over mijn studie, vaardigheden en talen.
+             Deze informatie wordt op mobiele schermen verborgen via CSS. -->
         <div class="sidebar-info">
 
             <div class="info-item">
@@ -59,31 +68,40 @@
 
         </div>
 
+        <!-- CONTACTLINKS
+             Bevat links naar e-mail, GitHub en LinkedIn.
+             target="_blank" opent de externe profielen in een nieuw tabblad. -->
         <div class="contact-section">
 
-    <h3>Contact</h3>
+            <h3>Contact</h3>
 
-    <a href="mailto:jouwmail@example.com">
-        Email
-    </a>
+            <a href="mailto:jouwmail@example.com">
+                Email
+            </a>
 
-    <a href="https://github.com/jouwgebruikersnaam" target="_blank">
-        GitHub
-    </a>
+            <a href="https://github.com/jouwgebruikersnaam" target="_blank">
+                GitHub
+            </a>
 
-    <a href="https://www.linkedin.com/in/jouwprofiel" target="_blank">
-        LinkedIn
-    </a>
+            <a href="https://www.linkedin.com/in/jouwprofiel" target="_blank">
+                LinkedIn
+            </a>
 
-</div>
+        </div>
 
     </header>
 
 
+    <!-- HOOFDINHOUD
+         Bevat de navigatie, projectinformatie en projectkaarten.
+         Het main-element geeft de belangrijkste pagina-inhoud aan. -->
     <main>
 
         <div class="content-container">
 
+            <!-- NAVIGATIE
+                 Laat bezoekers wisselen tussen de drie portfoliopagina's.
+                 De active-class markeert de huidige Projects-pagina. -->
             <nav class="top-nav">
 
                 <a href="index.html">
@@ -101,6 +119,9 @@
             </nav>
 
 
+            <!-- PROJECTINTRODUCTIE
+                 Toont de paginatitel en een korte beschrijving.
+                 Vertelt bezoekers welke projecten ze kunnen bekijken. -->
             <section class="page-intro">
 
                 <h1>Projects</h1>
@@ -113,19 +134,30 @@
             </section>
 
 
-                <div class="project-filter">
-                    <button id="toon-alles">Alle projecten</button>
-                    <button id="toon-java">Java</button>
-                    <button id="toon-web">Web</button>
-                </div>
+            <!-- PROJECTFILTERS
+                 Bevat knoppen om alle projecten, Java of Web te tonen.
+                 JavaScript gebruikt de ID's om de juiste filter toe te passen. -->
+            <div class="project-filter">
 
-                <div class="project-grid" id="project-grid">
+                <button id="toon-alles">Alle projecten</button>
+                <button id="toon-java">Java</button>
+                <button id="toon-web">Web</button>
+
+            </div>
 
 
-                </div>
+            <!-- DYNAMISCHE PROJECTENLIJST
+                 Is bij het laden leeg en wordt gevuld door JavaScript.
+                 JavaScript maakt projectkaarten aan en voegt ze hier toe. -->
+            <div class="project-grid" id="project-grid">
 
 
+            </div>
 
+
+            <!-- FOOTER
+                 Toont de copyrightinformatie onderaan de pagina.
+                 CSS bepaalt de opmaak en uitlijning. -->
             <footer>
 
                 <p>
@@ -138,6 +170,9 @@
 
     </main>
 
+    <!-- JAVASCRIPT
+         Laadt script.js voor de dynamische projecten en filters.
+         Het script maakt projectkaarten en verwerkt klikken op de knoppen. -->
     <script src="js/script.js"></script>
 
 </body>
