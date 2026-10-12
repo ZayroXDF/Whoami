@@ -1,5 +1,7 @@
 
+/*----------------------------------------------------------------------------------------------------
 /* KLEUREN
+/*--------------------------------------------------------------------------------------------------
    :root bevat CSS-variabelen voor de kleuren van de website.
    Met var() kunnen dezelfde kleuren op meerdere plekken worden gebruikt. */
 :root {
@@ -22,8 +24,9 @@
     --accent-hover: #3be477;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* CSS RESET
+/*----------------------------------------------------------------------------------------------------
    Verwijdert standaard marges en padding van HTML-elementen.
    border-box zorgt dat padding en borders meetellen in de breedte. */
 * {
@@ -32,16 +35,18 @@
     padding: 0;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* SOEPEL SCROLLEN
+/*----------------------------------------------------------------------------------------------------
    Zorgt voor een vloeiende scrollbeweging bij interne links.
    De browser scrolt hierdoor niet direct naar de bestemming. */
 html {
     scroll-behavior: smooth;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* BASISOPMAAK
+/*----------------------------------------------------------------------------------------------------
    Stelt het lettertype en de standaardkleuren van de website in.
    min-height zorgt dat de pagina minimaal de schermhoogte heeft. */
 body {
@@ -57,8 +62,9 @@ body {
     color: var(--text);
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* SIDEBAR
+/*----------------------------------------------------------------------------------------------------
    Plaatst de sidebar vast aan de linkerkant van het scherm.
    De breedte, hoogte, achtergrond en afgeronde hoeken worden ingesteld. */
 .sidebar {
@@ -78,8 +84,9 @@ body {
     border-radius: 20px;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* PROFIEL
+/*----------------------------------------------------------------------------------------------------
    Centreert de profielinformatie in de sidebar.
    De onderrand scheidt het profiel van de overige informatie. */
 .profile {
@@ -136,8 +143,9 @@ body {
     color: var(--text-muted);
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* SIDEBAR-INFORMATIE
+/*----------------------------------------------------------------------------------------------------
    Geeft de persoonlijke informatie ruimte bovenaan.
    Hierdoor staat deze niet direct tegen het profiel. */
 .sidebar-info {
@@ -175,8 +183,9 @@ body {
     color: var(--text-dark);
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* CONTACTGEDEELTE
+/*----------------------------------------------------------------------------------------------------
    Plaatst de contactlinks onder elkaar met Flexbox.
    De bovenrand scheidt de links van de persoonlijke informatie. */
 .contact-section {
@@ -232,8 +241,9 @@ body {
     transform: translateX(3px);
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* HOOFDINHOUD
+/*----------------------------------------------------------------------------------------------------
    margin-left houdt ruimte vrij voor de vaste sidebar.
    padding zorgt voor ruimte rondom de hoofdinhoud. */
 main {
@@ -242,8 +252,9 @@ main {
     padding: 20px 30px 20px 0;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* CONTENT-CONTAINER
+/*----------------------------------------------------------------------------------------------------
    Vormt het grote afgeronde blok waarin de pagina-inhoud staat.
    overflow hidden voorkomt dat inhoud buiten de afgeronde randen komt. */
 .content-container {
@@ -257,8 +268,9 @@ main {
     border-radius: 20px;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* BOVENSTE NAVIGATIE
+/*----------------------------------------------------------------------------------------------------
    Flexbox plaatst de navigatielinks naast elkaar.
    justify-content flex-end zet de links aan de rechterkant. */
 .top-nav {
@@ -333,8 +345,9 @@ main {
     border-radius: 5px 5px 0 0;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* SECTIES
+/*----------------------------------------------------------------------------------------------------
    Geeft alle section-elementen binnenruimte.
    Hierdoor staat de inhoud niet tegen de randen. */
 section {
@@ -349,8 +362,9 @@ section + section {
     padding-top: 10px;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* H1 PAGINATITEL
+/*----------------------------------------------------------------------------------------------------
    Stelt de grootte en kleur van de belangrijkste titel in.
    margin-bottom zorgt voor ruimte onder de titel. */
 h1 {
@@ -404,8 +418,9 @@ h3 {
     font-size: 1rem;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* ALINEATEKST
+/*----------------------------------------------------------------------------------------------------
    Gebruikt een gedempte tekstkleur voor gewone tekst.
    line-height vergroot de regelafstand voor betere leesbaarheid. */
 p {
@@ -414,8 +429,9 @@ p {
     line-height: 1.7;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* SKILL CARD GRID
+/*----------------------------------------------------------------------------------------------------
    CSS Grid verdeelt de vaardigheidskaarten in twee gelijke kolommen.
    repeat(2, 1fr) betekent twee kolommen met dezelfde breedte. */
 .card-grid {
@@ -487,8 +503,9 @@ p {
     font-weight: bold;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* PROJECT GRID
+/*----------------------------------------------------------------------------------------------------
    CSS Grid plaatst de projectkaarten in twee gelijke kolommen.
    Bij kleinere schermen wordt dit aangepast met een media query. */
 .project-grid {
@@ -557,8 +574,9 @@ p {
     margin-bottom: 20px;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* PROJECTTAGS
+/*----------------------------------------------------------------------------------------------------
    Flexbox plaatst de tags naast elkaar.
    flex-wrap zorgt dat tags naar een nieuwe regel kunnen gaan. */
 .tags {
@@ -588,8 +606,9 @@ p {
     font-size: 0.7rem;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* BLOG GRID
+/*----------------------------------------------------------------------------------------------------
    Gebruikt CSS Grid om de blogkaarten onder elkaar te plaatsen.
    gap bepaalt de afstand tussen de berichten. */
 .blog-grid {
@@ -640,8 +659,9 @@ p {
     font-size: 0.75rem;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* FOOTER
+/*----------------------------------------------------------------------------------------------------
    Plaatst de copyrightinformatie onderaan de inhoud.
    De bovenrand scheidt de footer van de rest van de pagina. */
 footer {
@@ -662,8 +682,9 @@ footer p {
     font-size: 0.8rem;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* RESPONSIVE TABLET
+/*----------------------------------------------------------------------------------------------------
    Deze media query wordt actief bij schermen van maximaal 900px.
    De indeling wordt aangepast voor tablets en kleinere schermen. */
 @media (max-width: 900px) {
@@ -739,8 +760,9 @@ footer p {
     }
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* RESPONSIVE MOBIEL
+/*----------------------------------------------------------------------------------------------------
    Deze media query wordt actief bij schermen van maximaal 480px.
    Past afstanden, tekstgroottes en de indeling verder aan. */
 @media (max-width: 480px) {
@@ -866,8 +888,9 @@ footer p {
     }
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* PROJECTFILTERS
+/*----------------------------------------------------------------------------------------------------
    Flexbox plaatst de filterknoppen naast elkaar.
    flex-wrap zorgt dat ze op kleinere schermen kunnen doorlopen. */
 .project-filter {
@@ -910,8 +933,9 @@ footer p {
     outline-offset: 2px;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* EXTRA BLOGTEKST
+/*----------------------------------------------------------------------------------------------------
    display none verbergt de aanvullende blogtekst standaard.
    JavaScript kan deze tekst later zichtbaar maken. */
 .blog-extra {
@@ -926,8 +950,9 @@ footer p {
     display: block;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* LEES MEER-KNOP
+/*----------------------------------------------------------------------------------------------------
    Geeft de blogknop een donkere achtergrond en afgeronde hoeken.
    JavaScript gebruikt deze knop om extra tekst te tonen. */
 .lees-meer {
@@ -949,8 +974,9 @@ footer p {
     border-color: #00e676;
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* CONTACTFORMULIER-SECTIE
+/*----------------------------------------------------------------------------------------------------
    Geeft het contactformulier extra ruimte aan de bovenkant.
    Hierdoor staat het formulier losser van de vorige inhoud. */
 .contact-form-section {

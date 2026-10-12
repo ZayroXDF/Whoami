@@ -1,4 +1,6 @@
+/*----------------------------------------------------------------------------------------------------
 /* PROJECTEN
+/*----------------------------------------------------------------------------------------------------
    Bevat alle projectgegevens in een array met objecten.
    JavaScript gebruikt deze gegevens om projectkaarten te maken. */
 
@@ -147,8 +149,9 @@ if (projectGrid) {
     });
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* BLOG
+/*----------------------------------------------------------------------------------------------------
    Regelt de Lees meer- en Lees minder-knoppen.
    Hiermee kan de gebruiker aanvullende blogtekst openen. */
 
@@ -190,8 +193,9 @@ leesMeerKnoppen.forEach(function(knop) {
 
 });
 
-
+/*----------------------------------------------------------------------------------------------------
 /* CONTACTFORMULIER
+/*----------------------------------------------------------------------------------------------------
    Controleert de naam, het e-mailadres en het bericht.
    Toont foutmeldingen wanneer de invoer niet geldig is. */
 
@@ -285,8 +289,9 @@ if (contactForm) {
 
 }
 
-
+/*----------------------------------------------------------------------------------------------------
 /* WEER API
+/*----------------------------------------------------------------------------------------------------
    Haalt actuele weergegevens op via de Open-Meteo API.
    Toont de temperatuur en windsnelheid van Den Haag. */
 
