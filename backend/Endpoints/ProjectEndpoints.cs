@@ -41,7 +41,7 @@ public static class ProjectEndpoints
         };
 
             return Results.Created($"/api/projects/{project.Id}", result);
-        });
+        }).RequireAuthorization("EditorOrAdmin");
 
         app.MapGet("/api/projects/{id:int}", async (
             int id,
@@ -80,7 +80,7 @@ public static class ProjectEndpoints
             }
 
             return Results.NoContent();
-        });
+        }).RequireAuthorization("EditorOrAdmin");
 
         app.MapDelete("/api/projects/{id:int}", async (
             int id,
@@ -94,6 +94,6 @@ public static class ProjectEndpoints
             }
 
             return Results.NoContent();
-        });
+        }).RequireAuthorization("EditorOrAdmin");
     }
 }

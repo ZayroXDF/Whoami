@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Whoami.Api.csproj" />
+  <Project Path="Whoami.Api.Tests/Whoami.Api.Tests.csproj" />
+</Solution>

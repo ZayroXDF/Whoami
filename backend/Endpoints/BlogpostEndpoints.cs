@@ -37,7 +37,7 @@ public static class BlogpostEndpoints
             };
 
             return Results.Created($"/api/blogposts/{blogpost.Id}", result);
-        });
+        }).RequireAuthorization("EditorOrAdmin");
 
         app.MapGet("/api/blogposts/{id:int}", async (
             int id,
@@ -74,7 +74,7 @@ public static class BlogpostEndpoints
             }
 
             return Results.NoContent();
-        });
+        }).RequireAuthorization("EditorOrAdmin");
 
         app.MapDelete("/api/blogposts/{id:int}", async (
             int id,
@@ -88,7 +88,7 @@ public static class BlogpostEndpoints
             }
 
             return Results.NoContent();
-        });
+        }).RequireAuthorization("EditorOrAdmin");
 
     }
 }
