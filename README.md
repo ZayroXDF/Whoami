@@ -52,7 +52,7 @@ Voorbeeld:
 }
 ```
 
-De SQL Server-instance moet beschikbaar zijn. Wanneer je een andere instance gebruikt, moet je de servernaam in de connectionstring aanpassen.
+De SQL Server Express-service moet gestart zijn (controleer dit bijvoorbeeld in Windows Services of SSMS). De database wordt aangemaakt via de migraties in hoofdstuk 4. Wanneer je een andere instance gebruikt, moet je de servernaam in de connectionstring aanpassen.
 
 ## 4. Database aanmaken
 
@@ -65,7 +65,7 @@ dotnet restore
 dotnet ef database update
 ```
 
-Met `dotnet ef database update` worden de bestaande migraties toegepast. Hiermee worden de tabellen voor projecten, blogposts en ASP.NET Core Identity aangemaakt.
+Met `dotnet ef database update` worden alle nog niet toegepaste migraties uitgevoerd, waaronder `InitialCreate` (projecten en blogposts) en `AddIdentityTables` (ASP.NET Core Identity). Je hoeft de migraties niet handmatig apart uit te voeren.
 
 Identity gebruikt onder andere de tabellen `AspNetUsers`, `AspNetRoles` en `AspNetUserRoles`. Hierin worden gebruikers, rollen en de bijbehorende koppelingen opgeslagen.
 
@@ -168,6 +168,68 @@ Voor POST-, PUT- en DELETE-verzoeken wordt de autorisatiepolicy `EditorOrAdmin` 
 
 Hiermee wordt voorkomen dat onbevoegde gebruikers projecten of blogposts kunnen toevoegen, wijzigen of verwijderen.
 
+### 6.2 Lokaal een Gast, Editor en Admin beschikbaar maken
+
+Deze stappen zijn bedoeld voor een **lokale ontwikkelomgeving** met de database `WhoamiDb`, niet voor productie. De applicatie maakt bij het starten automatisch de rollen `Gast`, `Editor` en `Admin` aan als ze nog niet bestaan. Nieuwe registraties krijgen standaard de rol `Gast`. Er is momenteel geen publiek endpoint om rollen te wijzigen.
+
+**Stap 1 – Start de API** met `dotnet run` vanuit `backend`. Registreer drie verschillende testaccounts via `POST /api/auth/register`, bijvoorbeeld met Swagger UI (`http://localhost:5111/swagger`, indien deze poort wordt gebruikt). Gebruik voor elk account een eigen, sterk wachtwoord. Voorbeeld van de request-body:
+
+```json
+{
+  "email": "gast@localhost.test",
+  "password": "KiesZelfEenSterkWachtwoord!"
+}
+```
+
+Registreer op dezelfde manier `editor@localhost.test` en `admin@localhost.test`. Alle drie zijn op dat moment Gast.
+
+**Stap 2 – Geef de twee accounts hun rol via SSMS.** Maak in SQL Server Management Studio verbinding met dezelfde SQL Server Express-instance als de API. Open een nieuw queryvenster en voer onderstaand script uit. Dit script past alleen de twee expliciet genoemde lokale testaccounts aan en kan opnieuw worden uitgevoerd zonder dubbele rolkoppelingen te maken.
+
+```sql
+USE WhoamiDb;
+GO
+
+-- Controleer of de accounts en rollen bestaan.
+SELECT Email FROM dbo.AspNetUsers
+WHERE Email IN ('gast@localhost.test', 'editor@localhost.test', 'admin@localhost.test');
+SELECT Name FROM dbo.AspNetRoles
+WHERE Name IN ('Gast', 'Editor', 'Admin');
+
+-- Verwijder voor Editor en Admin hun oorspronkelijke Gast-rol.
+DELETE ur
+FROM dbo.AspNetUserRoles AS ur
+INNER JOIN dbo.AspNetUsers AS u ON u.Id = ur.UserId
+INNER JOIN dbo.AspNetRoles AS r ON r.Id = ur.RoleId
+WHERE u.Email IN ('editor@localhost.test', 'admin@localhost.test')
+  AND r.Name = 'Gast';
+
+-- Koppel de juiste rollen aan de twee testaccounts.
+INSERT INTO dbo.AspNetUserRoles (UserId, RoleId)
+SELECT u.Id, r.Id
+FROM dbo.AspNetUsers AS u
+INNER JOIN dbo.AspNetRoles AS r
+    ON (u.Email = 'editor@localhost.test' AND r.Name = 'Editor')
+    OR (u.Email = 'admin@localhost.test' AND r.Name = 'Admin')
+WHERE NOT EXISTS (
+    SELECT 1 FROM dbo.AspNetUserRoles AS ur
+    WHERE ur.UserId = u.Id AND ur.RoleId = r.Id
+);
+
+-- Controleer het resultaat.
+SELECT u.Email, r.Name AS Rol
+FROM dbo.AspNetUsers AS u
+INNER JOIN dbo.AspNetUserRoles AS ur ON ur.UserId = u.Id
+INNER JOIN dbo.AspNetRoles AS r ON r.Id = ur.RoleId
+WHERE u.Email IN ('gast@localhost.test', 'editor@localhost.test', 'admin@localhost.test')
+ORDER BY u.Email;
+```
+
+Verwachte rollen: `gast@localhost.test` → Gast, `editor@localhost.test` → Editor en `admin@localhost.test` → Admin.
+
+**Stap 3 – Log opnieuw in.** Gebruik `POST /api/auth/login` met het e-mailadres en wachtwoord van het gewenste account. Gebruik een aparte browsersessie of HTTP-client per rol, zodat oude authenticatiecookies geen invloed hebben. Test daarna bijvoorbeeld `POST /api/projects` of `POST /api/blogposts`: Gast krijgt `403 Forbidden`, Editor en Admin mogen een geldige schrijfactie uitvoeren (`201 Created`). Zonder login krijg je `401 Unauthorized`.
+
+> Let op: de SQL-methode is uitsluitend bedoeld om lokaal testaccounts klaar te zetten. In een echte applicatie hoort rolbeheer via beveiligde beheerdersfunctionaliteit of een gecontroleerde seedprocedure te verlopen.
+
 ## 7. Testen
 
 Voor WPFW Opdracht 4 heb ik automatische integratietests toegevoegd met xUnit en `WebApplicationFactory`.
@@ -208,7 +270,7 @@ De tests staan in de map `backend/Whoami.Api.Tests` en zijn verdeeld over drie b
 
 ### 7.2 Tests uitvoeren
 
-Open een terminal in de map `backend` en voer uit:
+Zorg dat SQL Server Express draait en dat de testdatabase uit hoofdstuk 4.1 is aangemaakt. Open vervolgens een terminal in de map `backend` en voer uit:
 
 ```powershell
 dotnet test Whoami.slnx --verbosity normal
